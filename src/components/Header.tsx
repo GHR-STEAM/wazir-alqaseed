@@ -26,6 +26,7 @@ export default function Header() {
           <Link href="/poems" className="text-[#c9b07a] hover:text-[#ca8a04] transition-colors font-semibold text-sm">القصائد</Link>
           <Link href="/categories" className="text-[#c9b07a] hover:text-[#ca8a04] transition-colors font-semibold text-sm">الفئات</Link>
           <Link href="/reciters" className="text-[#c9b07a] hover:text-[#ca8a04] transition-colors font-semibold text-sm">المنشدون</Link>
+          <Link href="/adhkar" className="text-[#c9b07a] hover:text-[#ca8a04] transition-colors font-semibold text-sm">الأذكار</Link>
           <Link href="/about" className="text-[#c9b07a] hover:text-[#ca8a04] transition-colors font-semibold text-sm">عن الشعراء</Link>
           {user ? (
             <Link href="/dashboard" className="text-[#fde047] font-bold text-sm bg-[#ca8a04]/10 px-3 py-1 rounded-lg border border-[#ca8a04]/30">
