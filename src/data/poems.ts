@@ -152,6 +152,12 @@ export const taymaContent = {
     { num:'٤٠+', label:'محالة' },
     { num:'٧٧', label:'ناقة تسقى دفعة' },
   ],
+  images: [
+    'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQ769KE7Cjx3WSN3lEE-qgY7NA4djHMq85W4mBeXcaRrx9gjNmNDJAoXpMmGOh_3pZhdBhVNP2l87KTxV6abtuf-paBOJh9mTAqkZnDGjQ8p6I0wsX8JZSaW3673rBcT9KVZsnHbavVLG9/s900/Hadaj+Well+%25E2%2580%2593+Tayma1.jpg',
+    'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzrprAY7trGmEarr8vS1XjksMgj8MyihZjnupb4PdckD17rULWq8SBom-DuTFBHj1SG9R-JOdB2LDHTx24ZBSaHNNhrl397jX_OcUzBkDklJCKB2rqFF3Wb_4INgZKC3VtD7T2b1QW-tzW/s900/Hadaj+Well+%25E2%2580%2593+Tayma2.jpg',
+    'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUpbj_jzyh_QcBjKer1LpGjnJ2cCqv06PwnyvnvVqOG6fJFWyvopZW2Kak-qLfFBNXlzYi86PPdZ5Yv_qEF6m3QO3peq9v659r31ko_6m16f-M_6o_ZvbL-cHHuBJpibpxS807TjSg_cUU/s900/Hadaj+Well+%25E2%2580%2593+Tayma3.jpg'
+  ],
+  imageCaption: 'بئر هداج · شيخ الجوية · نقشت عليها الحضارات منذ القرن السادس قبل الميلاد',
   cards: [
     { icon:'🏺', title:'هداج ونابونيد', text:'نحو عام ٥٥٣ق.م أقام الملك البابلي نابونيد في تيماء قرابة عشر سنوات، واتخذها عاصمةً بديلة لبابل.' },
     { icon:'💧', title:'نظام السواني', text:'امتلك هداج أكثر من أربعين محالة (بكرة خشبية) تسحب الماء بواسطة الإبل، وأكثر من ثلاثين سرياً (قناة حجرية).' },
@@ -164,6 +170,7 @@ export const taymaContent = {
     { text:'يا ضارب في الصخر بذراع أجرد · بين بياض العظم ما فاض هداج', author:'الأمير بدر بن عبدالمحسن' },
     { text:'وعيني لعل الله يعجل فرجها · يفوح ناظرها كما عين هداج', author:'محمد الأحمدي السديري' },
     { text:'هداج تيماء ماتواني سوانيه · ما ينعرف وردة من الصادرين', author:'ناصر الزعيبي' },
+    { text:'لا جيت تنصى في اللوازم رفيقك · لا تحسب انك قاصد بئر هداج · هو وده يوقف معك وقت ضيقك · لكن وش الحيلة ليا صار محتاج', author:'سعد بن هيال' },
     { text:'حنيت لتيماء الجميلة وماضيها · ولبئر هداج الأصيلة وماضيها', author:'عايد بن ضافي الجلوي رحمه الله' },
   ]
 }
