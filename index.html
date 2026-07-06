@@ -822,6 +822,114 @@
     .featured-poem-box { padding: 1.2rem; }
     .modal-box { padding: 1.5rem; }
   }
+
+  /* ─── ADMIN ─── */
+  .admin-trigger {
+    position: fixed; bottom: 1rem; left: 1rem; width: 44px; height: 44px;
+    border-radius: 50%; background: rgba(184,131,42,0.15); border: 1px solid rgba(184,131,42,0.25);
+    color: var(--ochre-light); font-size: 1.1rem; cursor: pointer; z-index: 300;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s; opacity: 0.35;
+  }
+  .admin-trigger:hover { opacity: 1; background: rgba(184,131,42,0.3); }
+  .admin-login-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+    z-index: 400; display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  }
+  .admin-login-overlay.open { opacity: 1; pointer-events: all; }
+  .admin-login-box {
+    background: linear-gradient(160deg, #2a1e10, #1a1208);
+    border: 1px solid rgba(184,131,42,0.3); border-radius: 14px; padding: 2.5rem;
+    max-width: 380px; width: 100%; text-align: center;
+  }
+  .admin-login-box h2 { font-family:'Amiri',serif; font-size:1.4rem; color:var(--ochre-light); margin-bottom:0.5rem; }
+  .admin-login-box p { font-size:0.85rem; color:var(--muted); margin-bottom:1.5rem; }
+  .admin-login-box input {
+    width:100%; padding:0.7rem 1rem; border-radius:8px;
+    border:1px solid rgba(184,131,42,0.3); background:rgba(28,19,9,0.8);
+    color:var(--text); font-size:1rem; margin-bottom:1rem; outline:none;
+    transition: border-color 0.2s; text-align:center;
+  }
+  .admin-login-box input:focus { border-color: var(--ochre); }
+  .admin-login-box .admin-btn {
+    width:100%; padding:0.7rem; border-radius:8px; border:none;
+    background:var(--ochre); color:var(--night); font-weight:700;
+    font-size:1rem; cursor:pointer; transition:background 0.2s;
+  }
+  .admin-login-box .admin-btn:hover { background: var(--ochre-light); }
+  .admin-login-error { color:#e74c3c; font-size:0.82rem; margin-top:0.5rem; display:none; }
+  .admin-panel {
+    position: fixed; inset: 0; background: var(--night); z-index: 500;
+    display: none; direction: rtl;
+  }
+  .admin-panel.open { display: flex; }
+  .admin-sidebar {
+    width: 200px; background: rgba(28,19,9,0.95);
+    border-left: 1px solid rgba(184,131,42,0.15);
+    padding: 1rem 0; display: flex; flex-direction: column; flex-shrink: 0;
+  }
+  .admin-sidebar-title {
+    font-family:'Amiri',serif; font-size:1.1rem; color:var(--ochre-light);
+    padding:1rem 1.2rem; border-bottom:1px solid rgba(184,131,42,0.15); margin-bottom:0.5rem;
+  }
+  .admin-sidebar-btn {
+    background:none; border:none; color:var(--sand-dark); padding:0.65rem 1.2rem;
+    text-align:right; font-size:0.88rem; cursor:pointer; transition:all 0.2s;
+    font-family:'Cairo',sans-serif; display:block; width:100%;
+  }
+  .admin-sidebar-btn:hover, .admin-sidebar-btn.active { color:var(--ochre-light); background:rgba(184,131,42,0.1); }
+  .admin-sidebar-logout {
+    margin-top:auto; color:var(--muted); font-size:0.82rem;
+    padding:0.7rem 1.2rem; border-top:1px solid rgba(184,131,42,0.1);
+    cursor:pointer; background:none; border-width:0; text-align:right; width:100%;
+    font-family:'Cairo',sans-serif; transition:color 0.2s;
+  }
+  .admin-sidebar-logout:hover { color:#e74c3c; }
+  .admin-content { flex:1; padding:2rem; overflow-y:auto; }
+  .admin-content h2 { font-family:'Amiri',serif; font-size:1.5rem; color:var(--ochre-light); margin-bottom:1rem; padding-bottom:0.5rem; border-bottom:1px solid rgba(184,131,42,0.15); }
+  .admin-stats { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:1rem; margin:1rem 0; }
+  .admin-stat-card { background:rgba(61,43,31,0.4); border:1px solid rgba(184,131,42,0.2); border-radius:10px; padding:1rem; text-align:center; }
+  .admin-stat-card .stat-num { font-family:'Amiri',serif; font-size:1.7rem; color:var(--ochre-light); }
+  .admin-stat-card .stat-label { font-size:0.75rem; color:var(--muted); margin-top:0.2rem; }
+  .admin-table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.85rem; }
+  .admin-table th, .admin-table td { padding:0.6rem 0.7rem; text-align:right; border-bottom:1px solid rgba(184,131,42,0.1); }
+  .admin-table th { color:var(--ochre-light); font-weight:600; }
+  .admin-table td { color:var(--sand-dark); }
+  .admin-table tr:hover td { background:rgba(61,43,31,0.25); }
+  .admin-btn {
+    padding:0.35rem 0.9rem; border-radius:6px; border:1px solid rgba(184,131,42,0.3);
+    background:rgba(61,43,31,0.5); color:var(--sand-dark); cursor:pointer;
+    font-size:0.78rem; transition:all 0.2s; font-family:'Cairo',sans-serif;
+  }
+  .admin-btn:hover { border-color:var(--ochre); color:var(--ochre-light); }
+  .admin-btn-primary { background:var(--ochre); color:var(--night); border-color:var(--ochre); font-weight:600; }
+  .admin-btn-primary:hover { background:var(--ochre-light); color:var(--night); }
+  .admin-btn-danger { border-color:rgba(231,76,60,0.3); color:#e74c3c; }
+  .admin-btn-danger:hover { background:rgba(231,76,60,0.12); border-color:#e74c3c; }
+  .admin-form { margin:1.5rem 0; }
+  .admin-form label { display:block; font-size:0.85rem; color:var(--sand-dark); margin-bottom:0.3rem; }
+  .admin-form input, .admin-form textarea, .admin-form select {
+    width:100%; padding:0.55rem 0.85rem; border-radius:6px;
+    border:1px solid rgba(184,131,42,0.2); background:rgba(28,19,9,0.8);
+    color:var(--text); font-size:0.9rem; margin-bottom:0.7rem; outline:none;
+    font-family:'Cairo',sans-serif;
+  }
+  .admin-form input:focus, .admin-form textarea:focus { border-color:var(--ochre); }
+  .admin-form textarea { min-height:70px; resize:vertical; }
+  .admin-form .form-row { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; }
+  .admin-form .form-actions { display:flex; gap:0.6rem; margin-top:0.3rem; }
+  .admin-section { display:none; }
+  .admin-section.active { display:block; }
+  @media (max-width:700px) {
+    .admin-panel { flex-direction:column; }
+    .admin-sidebar { width:100%; flex-direction:row; overflow-x:auto; padding:0; }
+    .admin-sidebar-title { display:none; }
+    .admin-sidebar-btn { white-space:nowrap; padding:0.5rem 0.8rem; font-size:0.8rem; }
+    .admin-sidebar-logout { display:none; }
+    .admin-content { padding:1rem; }
+    .admin-stats { grid-template-columns:repeat(2,1fr); }
+  }
 </style>
 </head>
 <body>
@@ -1078,6 +1186,54 @@
   </div>
 </div>
 
+<!-- ADMIN LOGIN -->
+<div class="admin-login-overlay" id="admin-login">
+  <div class="admin-login-box">
+    <h2>🔑 دخول لوحة التحكم</h2>
+    <p>الرجاء إدخال كلمة المرور</p>
+    <input type="password" id="admin-password" placeholder="كلمة المرور" onkeydown="if(event.key==='Enter')adminLogin()" value="admin123">
+    <button class="admin-btn" onclick="adminLogin()">دخول</button>
+    <p class="admin-login-error" id="admin-login-error">كلمة المرور غير صحيحة</p>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-panel" id="admin-panel">
+  <div class="admin-sidebar">
+    <div class="admin-sidebar-title">⚗ الإدارة</div>
+    <button class="admin-sidebar-btn active" onclick="switchAdminSection('dashboard',this)">📊 الرئيسية</button>
+    <button class="admin-sidebar-btn" onclick="switchAdminSection('poems',this)">📝 القصائد</button>
+    <button class="admin-sidebar-btn" onclick="switchAdminSection('media',this)">🎬 المرئيات</button>
+    <button class="admin-sidebar-btn" onclick="switchAdminSection('export',this)">💾 تصدير</button>
+    <button class="admin-sidebar-btn" onclick="switchAdminSection('settings',this)">⚙ الإعدادات</button>
+    <button class="admin-sidebar-logout" onclick="adminLogout()">🚪 خروج</button>
+  </div>
+  <div class="admin-content">
+    <div class="admin-section active" id="admin-dashboard"><h2>📊 لوحة التحكم</h2><div class="admin-stats" id="admin-stats"></div></div>
+    <div class="admin-section" id="admin-poems">
+      <h2>📝 إدارة القصائد</h2>
+      <button class="admin-btn admin-btn-primary" onclick="togglePoemForm()">+ إضافة قصيدة</button>
+      <div class="admin-form" id="poem-form" style="display:none"></div>
+      <div id="poems-table"></div>
+    </div>
+    <div class="admin-section" id="admin-media">
+      <h2>🎬 إدارة المرئيات</h2>
+      <div style="display:flex;gap:0.5rem;margin-bottom:1rem;">
+        <button class="admin-btn" onclick="switchMediaTab('anaad')" id="media-tab-anaad" style="background:rgba(184,131,42,0.2);color:var(--ochre-light)">عناد سابل</button>
+        <button class="admin-btn" onclick="switchMediaTab('ayed')" id="media-tab-ayed">عايد الجلوي</button>
+      </div>
+      <button class="admin-btn admin-btn-primary" onclick="toggleMediaForm()">+ إضافة مقطع</button>
+      <div class="admin-form" id="media-form" style="display:none"></div>
+      <div id="media-table"></div>
+    </div>
+    <div class="admin-section" id="admin-export"><h2>💾 تصدير واستيراد</h2><p style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">صدّر البيانات للاحتفاظ بنسخة احتياطية أو استيراد تعديلات</p><button class="admin-btn admin-btn-primary" onclick="exportData()">📥 تحميل البيانات</button><br><br><label style="font-size:0.85rem;color:var(--sand-dark);">استيراد ملف JSON:</label><input type="file" accept=".json" onchange="importData(event)" style="display:block;margin-top:0.3rem;color:var(--text);"><p id="import-status" style="font-size:0.82rem;margin-top:0.5rem;"></p></div>
+    <div class="admin-section" id="admin-settings"><h2>⚙ الإعدادات</h2><div class="admin-form"><label>تغيير كلمة المرور</label><input type="password" id="admin-new-password" placeholder="كلمة المرور الجديدة" value="admin123"><button class="admin-btn admin-btn-primary" onclick="changePassword()">حفظ</button><p id="password-status" style="font-size:0.82rem;margin-top:0.5rem;color:var(--muted);"></p></div></div>
+  </div>
+</div>
+
+<!-- ADMIN TRIGGER -->
+<button class="admin-trigger" onclick="openAdminLogin()" title="لوحة التحكم">🔐</button>
+
 <script>
 // ──────────── POEMS DATA ────────────
 
@@ -1321,6 +1477,269 @@ function closeModal(e) {
 }
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalBtn(); });
+
+// ═══════════════ ADMIN SYSTEM ═══════════════
+
+const _PASS = localStorage.getItem('_wz_pass') || 'admin123';
+if (!localStorage.getItem('_wz_pass')) localStorage.setItem('_wz_pass', _PASS);
+let _mediaTab = 'anaad';
+
+function openAdminLogin() { document.getElementById('admin-login').classList.add('open'); }
+
+function adminLogin() {
+  const pwd = document.getElementById('admin-password').value;
+  if (pwd === localStorage.getItem('_wz_pass')) {
+    document.getElementById('admin-login').classList.remove('open');
+    document.getElementById('admin-panel').classList.add('open');
+    loadAdminData();
+    renderDashboard();
+    renderPoemsTable();
+    renderMediaTable();
+  } else {
+    const err = document.getElementById('admin-login-error');
+    err.style.display = 'block';
+    setTimeout(() => err.style.display = 'none', 2000);
+  }
+}
+
+function adminLogout() {
+  document.getElementById('admin-panel').classList.remove('open');
+  document.getElementById('admin-trigger');
+}
+
+function switchAdminSection(id, btn) {
+  document.querySelectorAll('.admin-sidebar-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+  document.getElementById('admin-' + id).classList.add('active');
+  if (id === 'dashboard') renderDashboard();
+  if (id === 'poems') renderPoemsTable();
+  if (id === 'media') renderMediaTable();
+}
+
+function switchMediaTab(tab) {
+  _mediaTab = tab;
+  document.querySelectorAll('#admin-media .admin-btn:not(.admin-btn-primary)').forEach(b => { b.style.background = ''; b.style.color = ''; });
+  const btn = document.getElementById('media-tab-' + tab);
+  if (btn) { btn.style.background = 'rgba(184,131,42,0.2)'; btn.style.color = 'var(--ochre-light)'; }
+  renderMediaTable();
+}
+
+function loadAdminData() {
+  window._poems = JSON.parse(localStorage.getItem('_wz_poems') || JSON.stringify(poems));
+  window._mAnaad = JSON.parse(localStorage.getItem('_wz_manaad') || JSON.stringify(mediaAnaad));
+  window._mAyed = JSON.parse(localStorage.getItem('_wz_mayed') || JSON.stringify(mediaAyed));
+  if (!localStorage.getItem('_wz_poems')) localStorage.setItem('_wz_poems', JSON.stringify(window._poems));
+  if (!localStorage.getItem('_wz_manaad')) localStorage.setItem('_wz_manaad', JSON.stringify(window._mAnaad));
+  if (!localStorage.getItem('_wz_mayed')) localStorage.setItem('_wz_mayed', JSON.stringify(window._mAyed));
+  syncAdminToLive();
+}
+
+function syncAdminToLive() {
+  poems.length = 0; poems.push(...window._poems);
+  mediaAnaad.length = 0; mediaAnaad.push(...window._mAnaad);
+  mediaAyed.length = 0; mediaAyed.push(...window._mAyed);
+  renderPoems('all');
+  renderMediaGrid('grid-anaad', mediaAnaad);
+  renderMediaGrid('grid-ayed', mediaAyed);
+}
+
+// ─── DASHBOARD ───
+function renderDashboard() {
+  const cats = new Set(poems.map(p => p.cat));
+  const allMedia = [...mediaAnaad, ...mediaAyed];
+  document.getElementById('admin-stats').innerHTML = `
+    <div class="admin-stat-card"><div class="stat-num">${poems.length}</div><div class="stat-label">قصيدة</div></div>
+    <div class="admin-stat-card"><div class="stat-num">${allMedia.length}</div><div class="stat-label">مقطع مرئي</div></div>
+    <div class="admin-stat-card"><div class="stat-num">${cats.size}</div><div class="stat-label">فئة</div></div>
+    <div class="admin-stat-card"><div class="stat-num">${mediaAnaad.length + mediaAyed.length > 0 ? '2' : '0'}</div><div class="stat-label">شاعر</div></div>
+  `;
+}
+
+// ─── POEMS ───
+function renderPoemsTable() {
+  const list = window._poems || poems;
+  if (!list.length) { document.getElementById('poems-table').innerHTML = '<p style="color:var(--muted);padding:1rem 0;">لا توجد قصائد بعد</p>'; return; }
+  document.getElementById('poems-table').innerHTML = `<table class="admin-table"><thead><tr><th>#</th><th>العنوان</th><th>الفئة</th><th>الأبيات</th><th></th></tr></thead><tbody>${list.map((p,i) => `<tr><td>${i+1}</td><td>${p.title}</td><td style="font-size:0.78rem;color:var(--ochre-light)">${p.cat}</td><td style="font-size:0.78rem">${p.type==='masnad' ? p.lines.length+' بيت' : 'نص حر'}</td><td><button class="admin-btn admin-btn-sm" onclick="togglePoemForm(${i})">✏️</button> <button class="admin-btn admin-btn-sm admin-btn-danger" onclick="deletePoem(${i})">🗑</button></td></tr>`).join('')}</tbody></table>`;
+}
+
+function togglePoemForm(idx) {
+  const f = document.getElementById('poem-form');
+  if (idx !== undefined) {
+    const p = (window._poems || poems)[idx];
+    f.innerHTML = `<h4 style="color:var(--ochre-light);margin-bottom:0.8rem;">✏️ تعديل القصيدة</h4>
+      <label>العنوان</label><input id="pf-title" value="${p.title}">
+      <div class="form-row"><div><label>الفئة</label><input id="pf-cat" value="${p.cat}"></div><div><label>النوع</label><select id="pf-type"><option value="masnad" ${p.type==='masnad'?'selected':''}>مثنّد (صدر + عجز)</option><option value="free" ${p.type==='free'?'selected':''}>نص حر</option></select></div></div>
+      <div id="pf-lines-area">${p.type==='masnad' ? p.lines.map((l,i) => `<div class="form-row" style="margin-bottom:0.3rem"><input id="pf-s${i}" value="${l[0]}" placeholder="صدر"><input id="pf-a${i}" value="${l[1]||''}" placeholder="عجز"></div>`).join('') + `<button class="admin-btn admin-btn-sm" onclick="addBayt()" style="margin-top:0.3rem">+ بيت</button>` : `<textarea id="pf-text" rows="6">${p.text||''}</textarea>`}</div>
+      <div class="form-actions"><button class="admin-btn admin-btn-primary" onclick="savePoem(${idx})">💾 حفظ</button><button class="admin-btn" onclick="togglePoemForm()">إلغاء</button></div>
+      <input type="hidden" id="pf-edit-idx" value="${idx}">`;
+  } else {
+    f.innerHTML = `<h4 style="color:var(--ochre-light);margin-bottom:0.8rem;">➕ قصيدة جديدة</h4>
+      <label>العنوان</label><input id="pf-title" placeholder="عنوان القصيدة">
+      <div class="form-row"><div><label>الفئة</label><input id="pf-cat" placeholder="مثال: الحنين والذكريات"></div><div><label>النوع</label><select id="pf-type"><option value="masnad">مثنّد (صدر + عجز)</option><option value="free">نص حر</option></select></div></div>
+      <div id="pf-lines-area"><div class="form-row"><input id="pf-s0" placeholder="صدر البيت"><input id="pf-a0" placeholder="عجز البيت"></div><button class="admin-btn admin-btn-sm" onclick="addBayt()" style="margin-top:0.3rem">+ بيت</button></div>
+      <div class="form-actions"><button class="admin-btn admin-btn-primary" onclick="savePoem()">💾 حفظ</button><button class="admin-btn" onclick="togglePoemForm()">إلغاء</button></div>
+      <input type="hidden" id="pf-edit-idx" value="-1">`;
+  }
+  f.style.display = f.style.display === 'none' ? 'block' : 'none';
+}
+
+let _baytCount = 1;
+function addBayt() {
+  const n = _baytCount++;
+  const area = document.getElementById('pf-lines-area');
+  const div = document.createElement('div'); div.className = 'form-row'; div.style.marginBottom = '0.3rem';
+  div.innerHTML = `<input id="pf-s${n}" placeholder="صدر"><input id="pf-a${n}" placeholder="عجز">`;
+  area.insertBefore(div, area.lastElementChild);
+}
+
+function savePoem(idx) {
+  const title = document.getElementById('pf-title').value.trim();
+  const cat = document.getElementById('pf-cat').value.trim();
+  const type = document.getElementById('pf-type').value;
+  if (!title) return alert('الرجاء إدخال عنوان القصيدة');
+  const list = window._poems || poems;
+  let poem;
+  if (type === 'masnad') {
+    const lines = [];
+    let i = 0;
+    while (document.getElementById(`pf-s${i}`)) {
+      const s = document.getElementById(`pf-s${i}`).value.trim();
+      const a = document.getElementById(`pf-a${i}`).value.trim();
+      if (s) lines.push([s, a]);
+      i++;
+    }
+    if (!lines.length) return alert('الرجاء إدخال بيت واحد على الأقل');
+    poem = { title, cat, type: 'masnad', lines };
+  } else {
+    const text = document.getElementById('pf-text')?.value?.trim();
+    if (!text) return alert('الرجاء إدخال النص');
+    poem = { title, cat, type: 'free', text };
+  }
+  const editIdx = parseInt(document.getElementById('pf-edit-idx')?.value || '-1');
+  if (editIdx >= 0) list[editIdx] = poem;
+  else list.push(poem);
+  localStorage.setItem('_wz_poems', JSON.stringify(list));
+  syncAdminToLive();
+  renderPoemsTable();
+  togglePoemForm();
+}
+
+function deletePoem(idx) {
+  if (!confirm('تأكيد حذف القصيدة؟')) return;
+  const list = window._poems || poems;
+  list.splice(idx, 1);
+  localStorage.setItem('_wz_poems', JSON.stringify(list));
+  syncAdminToLive();
+  renderPoemsTable();
+}
+
+// ─── MEDIA ───
+function getMediaList() { return _mediaTab === 'anaad' ? (window._mAnaad || mediaAnaad) : (window._mAyed || mediaAyed); }
+
+function renderMediaTable() {
+  const list = getMediaList();
+  if (!list.length) { document.getElementById('media-table').innerHTML = '<p style="color:var(--muted);padding:1rem 0;">لا توجد مقاطع</p>'; return; }
+  const pnames = { anaad: 'عناد سابل العنزي', ayed: 'عايد بن ضافي الجلوي' };
+  document.getElementById('media-table').innerHTML = `<p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.5rem;">الشاعر: ${pnames[_mediaTab]} (${list.length} مقطع)</p><table class="admin-table"><thead><tr><th>#</th><th>العنوان</th><th>المنصة</th><th></th></tr></thead><tbody>${list.map((m,i) => `<tr><td>${i+1}</td><td>${m.title}</td><td><span style="font-size:0.72rem;background:rgba(184,131,42,0.14);padding:0.15rem 0.5rem;border-radius:4px">${m.platform.toUpperCase()}</span></td><td><button class="admin-btn admin-btn-sm" onclick="toggleMediaForm(${i})">✏️</button> <button class="admin-btn admin-btn-sm admin-btn-danger" onclick="deleteMedia(${i})">🗑</button></td></tr>`).join('')}</tbody></table>`;
+}
+
+function toggleMediaForm(idx) {
+  const f = document.getElementById('media-form');
+  if (idx !== undefined) {
+    const m = getMediaList()[idx];
+    f.innerHTML = `<h4 style="color:var(--ochre-light);margin-bottom:0.8rem;">✏️ تعديل المقطع</h4>
+      <label>العنوان</label><input id="mf-title" value="${m.title}">
+      <div class="form-row"><div><label>المنصة</label><select id="mf-platform"><option value="youtube" ${m.platform==='youtube'?'selected':''}>YouTube</option><option value="tiktok" ${m.platform==='tiktok'?'selected':''}>TikTok</option><option value="twitter" ${m.platform==='twitter'?'selected':''}>X</option><option value="insta" ${m.platform==='insta'?'selected':''}>Instagram</option></select></div><div><label>YouTube ID (إن وجد)</label><input id="mf-vid" value="${m.vid||''}"></div></div>
+      <label>الرابط</label><input id="mf-url" value="${m.url}">
+      <div class="form-actions"><button class="admin-btn admin-btn-primary" onclick="saveMedia(${idx})">💾 حفظ</button><button class="admin-btn" onclick="toggleMediaForm()">إلغاء</button></div>
+      <input type="hidden" id="mf-edit-idx" value="${idx}">`;
+  } else {
+    f.innerHTML = `<h4 style="color:var(--ochre-light);margin-bottom:0.8rem;">➕ مقطع جديد</h4>
+      <label>العنوان</label><input id="mf-title" placeholder="عنوان المقطع">
+      <div class="form-row"><div><label>المنصة</label><select id="mf-platform"><option value="youtube">YouTube</option><option value="tiktok">TikTok</option><option value="twitter">X</option><option value="insta">Instagram</option></select></div><div><label>YouTube ID</label><input id="mf-vid" placeholder="اختياري"></div></div>
+      <label>الرابط</label><input id="mf-url" placeholder="https://...">
+      <div class="form-actions"><button class="admin-btn admin-btn-primary" onclick="saveMedia()">💾 حفظ</button><button class="admin-btn" onclick="toggleMediaForm()">إلغاء</button></div>
+      <input type="hidden" id="mf-edit-idx" value="-1">`;
+  }
+  f.style.display = f.style.display === 'none' ? 'block' : 'none';
+}
+
+function saveMedia(idx) {
+  const title = document.getElementById('mf-title').value.trim();
+  const platform = document.getElementById('mf-platform').value;
+  const url = document.getElementById('mf-url').value.trim();
+  const vid = document.getElementById('mf-vid').value.trim();
+  if (!title || !url) return alert('الرجاء إدخال العنوان والرابط');
+  const list = getMediaList();
+  const media = { platform, title, vid, url };
+  const editIdx = parseInt(document.getElementById('mf-edit-idx')?.value || '-1');
+  if (editIdx >= 0) list[editIdx] = media;
+  else list.push(media);
+  const key = _mediaTab === 'anaad' ? '_wz_manaad' : '_wz_mayed';
+  localStorage.setItem(key, JSON.stringify(list));
+  syncAdminToLive();
+  renderMediaTable();
+  toggleMediaForm();
+}
+
+function deleteMedia(idx) {
+  if (!confirm('تأكيد الحذف؟')) return;
+  const list = getMediaList();
+  list.splice(idx, 1);
+  const key = _mediaTab === 'anaad' ? '_wz_manaad' : '_wz_mayed';
+  localStorage.setItem(key, JSON.stringify(list));
+  syncAdminToLive();
+  renderMediaTable();
+}
+
+// ─── EXPORT / IMPORT ───
+function exportData() {
+  const data = {
+    poems: JSON.parse(localStorage.getItem('_wz_poems') || '[]'),
+    media_anaad: JSON.parse(localStorage.getItem('_wz_manaad') || '[]'),
+    media_ayed: JSON.parse(localStorage.getItem('_wz_mayed') || '[]'),
+    exported_at: new Date().toISOString()
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'wazeer-data.json';
+  a.click();
+}
+
+function importData(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (data.poems) { localStorage.setItem('_wz_poems', JSON.stringify(data.poems)); }
+      if (data.media_anaad) { localStorage.setItem('_wz_manaad', JSON.stringify(data.media_anaad)); }
+      if (data.media_ayed) { localStorage.setItem('_wz_mayed', JSON.stringify(data.media_ayed)); }
+      loadAdminData();
+      document.getElementById('import-status').textContent = '✅ تم الاستيراد بنجاح!';
+      document.getElementById('import-status').style.color = '#2ecc71';
+      renderDashboard();
+      renderPoemsTable();
+      renderMediaTable();
+    } catch(err) {
+      document.getElementById('import-status').textContent = '❌ خطأ في قراءة الملف';
+      document.getElementById('import-status').style.color = '#e74c3c';
+    }
+  };
+  reader.readAsText(file);
+}
+
+// ─── SETTINGS ───
+function changePassword() {
+  const pwd = document.getElementById('admin-new-password').value.trim();
+  if (!pwd || pwd.length < 4) { document.getElementById('password-status').textContent = '❌ 4 أحرف على الأقل'; return; }
+  localStorage.setItem('_wz_pass', pwd);
+  document.getElementById('password-status').textContent = '✅ تم تغيير كلمة المرور';
+  document.getElementById('password-status').style.color = '#2ecc71';
+}
 </script>
 </body>
 </html>
