@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <section className="min-h-[85vh] flex flex-col items-center justify-center text-center px-4 py-20"
+      <section className="min-h-[85vh] flex flex-col items-center justify-center text-center px-4 py-20 fade-up"
         style={{background:'radial-gradient(ellipse at 50% 30%, rgba(202,138,4,0.08), transparent 65%)'}}>
         <div className="text-3xl mb-3 opacity-80">🌙</div>
         <h1 className="font-heading text-5xl md:text-7xl text-[#ca8a04] mb-2"
@@ -35,7 +35,7 @@ export default function HomePage() {
       {/* Featured Poem */}
       <section className="bg-[#1a140d]" id="poems">
         <div className="max-w-4xl mx-auto px-4 py-16 text-center">
-          <h2 className="font-heading text-3xl text-[#ca8a04]">
+          <h2 className="font-heading text-3xl text-[#ca8a04] fade-up">
             {featured.title}
           </h2>
           <div className="sand-divider" />
@@ -74,47 +74,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Media Section */}
-      <section className="py-16 px-4 max-w-6xl mx-auto" id="media">
-        <h2 className="font-heading text-3xl text-[#ca8a04] text-center mb-2">مرئيات</h2>
-        <div className="sand-divider" />
-        <p className="text-sm text-[#8a7055] text-center mb-8">مقاطع الشعراء على السوشيال ميديا</p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
-          {mediaLinks.anaad.map((m,i) => {
-            const vid = (m as any).vid
-            return (
-            <a key={i} href={(m as any).url || (vid ? `https://www.youtube.com/watch?v=${vid}` : '#')} target="_blank" rel="noopener noreferrer"
-              className="card overflow-hidden block group">
-              <div className="relative aspect-video bg-[#0a0804]">
-                {vid ? (
-                  <img src={`https://img.youtube.com/vi/${vid}/hqdefault.jpg`} alt={m.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center text-5xl opacity-20">{m.platform === 'tiktok' ? '♪' : '▶'}</div>
-                )}
-                <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
-                  <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur border-2 border-white/40 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">▶</div>
-                </div>
-              </div>
-              <div className="p-3">
-                <span className={`inline-block text-xs font-bold px-2 py-0.5 rounded mb-2 ${m.platform==='youtube'?'bg-red-600 text-white':m.platform==='tiktok'?'bg-black text-[#69C9D0] border border-gray-700':''}`}>
-                  {m.platform === 'youtube' ? '▶ YOUTUBE' : m.platform === 'tiktok' ? '♪ TIKTOK' : m.platform.toUpperCase()}
-                </span>
-                <p className="font-heading text-sm text-[#e8d5a3]">{m.title}</p>
-              </div>
-            </a>
-            )})}
-        </div>
-
-        <a href="https://www.youtube.com/results?search_query=عايد+بن+ضافي+الجلوي" target="_blank"
-          className="block text-center text-sm text-[#8a7055] hover:text-[#ca8a04] transition-colors">
-          🔍 روابط البحث في يوتيوب عن قصائد عايد الجلوي رحمه الله
-        </a>
-      </section>
-
-      {/* Media Section */}
-      <section className="py-16 px-4 max-w-6xl mx-auto" id="media">
+      {/* Media Section with Tabs */}
+      <section className="py-16 px-4 max-w-6xl mx-auto fade-up" id="media">
         <h2 className="font-heading text-3xl text-[#ca8a04] text-center mb-2">مرئيات</h2>
         <div className="sand-divider" />
         <p className="text-sm text-[#8a7055] text-center mb-8">مقاطع الشعراء على السوشيال ميديا</p>
@@ -136,15 +97,17 @@ export default function HomePage() {
 
         {[mediaLinks.anaad, mediaLinks.ayed].map((list,idx) => (
           <div key={idx} id={`media-list-${idx}`} className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{display:idx===0?'grid':'none'}}>
-            {list.map((m,i) => (
-              <a key={i} href={m.url || `https://www.youtube.com/watch?v=${m.vid}`} target="_blank" rel="noopener noreferrer"
+            {list.map((m,i) => {
+              const vid = (m as any).vid
+              return (
+              <a key={i} href={(m as any).url || (vid ? `https://www.youtube.com/watch?v=${vid}` : '#')} target="_blank" rel="noopener noreferrer"
                 className="card overflow-hidden block group">
                 <div className="relative aspect-video bg-[#0a0804] overflow-hidden">
-                  {m.vid ? (
-                    <img src={`https://img.youtube.com/vi/${m.vid}/hqdefault.jpg`} alt={m.title}
+                  {vid ? (
+                    <img src={`https://img.youtube.com/vi/${vid}/hqdefault.jpg`} alt={m.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   ) : (
-                    <div className="absolute inset-0 flex items-center justify-center text-5xl opacity-20">▶</div>
+                    <div className="absolute inset-0 flex items-center justify-center text-5xl opacity-20">{m.platform==='tiktok'?'♪':'▶'}</div>
                   )}
                   <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
                     <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur border-2 border-white/40 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">▶</div>
@@ -157,12 +120,12 @@ export default function HomePage() {
                   <p className="font-heading text-sm text-[#e8d5a3]">{m.title}</p>
                 </div>
               </a>
-            ))}
+            )})}
           </div>
         ))}
 
         <p className="text-center text-sm text-[#8a7055] mt-6">
-          🔍 روابط البحث في يوتيوب عن قصائد عايد الجلوي رحمه الله
+          🔍 <a href="https://www.youtube.com/results?search_query=عايد+بن+ضافي+الجلوي" target="_blank" className="hover:text-[#ca8a04] transition-colors">روابط البحث في يوتيوب عن قصائد عايد الجلوي رحمه الله</a>
         </p>
       </section>
 
